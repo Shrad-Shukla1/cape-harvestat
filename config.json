@@ -1,0 +1,158 @@
+{
+  "lastUpdated": "2026-10-05",
+  "manifestUrl": "manifest.json",
+  "model": "GB",
+  "version": {
+    "label": "HarvestStat version",
+    "description": "Forecasts from CAPE models trained on HarvestStat Africa subnational crop statistics.",
+    "otherVersion": {
+      "label": "FDW version of this page",
+      "url": "https://shrad-shukla1.github.io/cape-fdw/"
+    }
+  },
+  "_comment": [
+    "The crop / season / forecast month selectors are driven entirely by manifest.json,",
+    "which CAPE_crop_yield_forecast_visualization_harvestat.py regenerates on every run by scanning",
+    "the figure tree. Nothing in this file needs editing when a new forecast month lands.",
+    "",
+    "What IS edited here is the narrative: each region has a default summary and set of",
+    "caveats, and 'notes' overrides them for specific combinations. A note matches when",
+    "every field it specifies (crop, season, month, year) matches the current selection;",
+    "fields it leaves out are wildcards, and the most specific matching note wins.",
+    "A note may set 'summary', 'caveats' (replaces the region list) and/or 'extraCaveats'",
+    "(appended to the region list)."
+  ],
+  "contact": {
+    "name1": "Shrad Shukla",
+    "email1": "sshukla@ucsb.edu",
+    "name2": "Frank Davenport",
+    "email2": "frank_davenport@ucsb.edu"
+  },
+  "seasonLabels": {},
+  "seasonNotes": {
+    "Annual": "Kenya and Tanzania are reported as a single Annual season in HarvestStat.",
+    "Annual-Gu": "Kenya and Tanzania (Annual) together with the Somalia Gu season (March-July).",
+    "Annual-Deyr": "Kenya and Tanzania (Annual) together with the Somalia Deyr season (October-February).",
+    "Annual-Gu-Main": "Kenya and Tanzania (Annual), the Somalia Gu season and the Sudan Main season, which are all forecast in these months.",
+    "Main-Wet": "The main West Africa rainy season, named Wet in Nigeria and Main elsewhere.",
+    "Annual-Main-Summer": "The same southern Africa summer season, named Main, Summer or Annual depending on the country."
+  },
+  "regions": [
+    {
+      "id": "east-africa",
+      "name": "East Africa",
+      "default": {
+        "crop": "Sorghum"
+      },
+      "summary": "Machine learning based sub-national crop yield forecasts for East Africa, trained on HarvestStat Africa data. Select a crop, season and forecast month above to view the corresponding maps.",
+      "caveats": [
+        "Crop yield forecasts are masked for administrative units where historical Mean Absolute Prediction Error (MAPE) is above 40% and percent crop area (as per IFPRI crop mask) is at least 1%.",
+        "We provide absolute yield forecasts as well as anomalies relative to the observed crop yield baselines shown below.",
+        "These forecasts come from CAPE models trained on HarvestStat Africa yield data and use HarvestStat administrative boundaries, so units and results can differ from the FDW version of this page.",
+        "When countries in a region are forecast for different harvest years in the same month (for example Sudan and Tanzania in September), each harvest year is listed separately in the forecast month selector."
+      ],
+      "notes": []
+    },
+    {
+      "id": "southern-africa",
+      "name": "Southern Africa",
+      "default": {
+        "crop": "Maize"
+      },
+      "summary": "Machine learning based sub-national crop yield forecasts for Southern Africa, trained on HarvestStat Africa data. Select a crop, season and forecast month above to view the corresponding maps.",
+      "caveats": [
+        "Crop yield forecasts are masked for administrative units where historical Mean Absolute Prediction Error (MAPE) is above 40% and percent crop area (as per IFPRI crop mask) is at least 1%.",
+        "We provide absolute yield forecasts as well as anomalies relative to the observed crop yield baselines shown below.",
+        "These forecasts come from CAPE models trained on HarvestStat Africa yield data and use HarvestStat administrative boundaries, so units and results can differ from the FDW version of this page."
+      ],
+      "notes": []
+    },
+    {
+      "id": "west-africa",
+      "name": "West Africa",
+      "default": {
+        "crop": "Maize"
+      },
+      "summary": "Machine learning based sub-national crop yield forecasts for West Africa, trained on HarvestStat Africa data. These forecasts are new and should be treated as preliminary. Select a crop, season and forecast month above to view the corresponding maps.",
+      "caveats": [
+        "Crop yield forecasts are masked for administrative units where historical Mean Absolute Prediction Error (MAPE) is above 40% and percent crop area (as per IFPRI crop mask) is at least 1%.",
+        "We provide absolute yield forecasts as well as anomalies relative to the observed crop yield baselines shown below.",
+        "These forecasts come from CAPE models trained on HarvestStat Africa yield data and use HarvestStat administrative boundaries, so units and results can differ from the FDW version of this page."
+      ],
+      "notes": []
+    }
+  ],
+  "references": [
+    {
+      "authors": "Lee, D., Davenport, F., Shukla, S., Husak, G., Funk, C., Harrison, L., McNally, A., Rowland, J., Budde, M. & Verdin, J.",
+      "title": "Maize yield forecasts for Sub-Saharan Africa using Earth Observation data and machine learning",
+      "source": "Global Food Security 33, 100643",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/j.gfs.2022.100643"
+    },
+    {
+      "authors": "Lee, D., Davenport, F., Shukla, S., Husak, G., Funk, C. & Verdin, J.",
+      "title": "Contrasting performance of panel and time-series data models for subnational crop forecasting in Sub-Saharan Africa",
+      "source": "Agricultural and Forest Meteorology 359, 110213",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.agrformet.2024.110213"
+    },
+    {
+      "authors": "Lee, D., Anderson, W., Chen, X., Davenport, F., Shukla, S., Sahajpal, R., Budde, M., Rowland, J., Verdin, J., You, L., Ahouangbenon, M., Davis, K. F., Kebede, E., Ehrmann, S., Justice, C. & Meyer, C.",
+      "title": "HarvestStat Africa – Harmonized Subnational Crop Statistics for Sub-Saharan Africa",
+      "source": "Scientific Data 12, 690",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41597-025-05001-z"
+    },
+    {
+      "authors": "Davenport, F., Lee, D., Shukla, S., Husak, G., Funk, C., Budde, M. & Rowland, J.",
+      "title": "Testing spatial out-of-sample area of influence for grain forecasting models",
+      "source": "Environmental Research Letters 19(11), 114079",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/1748-9326/ad845e"
+    }
+  ],
+  "cape_predictors": [
+    {
+      "name": "PRCP.",
+      "description": "Accumulated Precip. (CHIRPS-V2)",
+      "sign": "+"
+    },
+    {
+      "name": "PDRY",
+      "description": "Accumulated Dry Days (CHIRPS-V2)",
+      "sign": "-"
+    },
+    {
+      "name": "ETOS",
+      "description": "Accumulated ET0 (NOAA-PSL)",
+      "sign": "-"
+    },
+    {
+      "name": "TEMP",
+      "description": "Avg. Temp (NOAA-CPC)",
+      "sign": "+/-"
+    },
+    {
+      "name": "GDD",
+      "description": "Growing Degree Days (NOAA-CPC)",
+      "sign": "+"
+    },
+    {
+      "name": "KDD",
+      "description": "Killing Degree Days (NOAA-CPC)",
+      "sign": "-"
+    },
+    {
+      "name": "NDVI",
+      "description": "Vegetation Index (eVIIRS/eVMOD)",
+      "sign": "+"
+    },
+    {
+      "name": "Year",
+      "description": "Trend Term",
+      "sign": "+/-"
+    }
+  ],
+  "methodsTabLabel": "Methods & References"
+}

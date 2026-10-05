@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHC Crop Yield Forecasts (HarvestStat)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌾 CHC Crop Yield Forecasts</h1>
+            <p class="subtitle">Climate Hazards Center - Africa Regional Forecasts</p>
+            <div id="version-info" class="version-info"></div>
+            <div id="forecast-date" class="forecast-date"></div>
+        </header>
+
+        <nav id="region-tabs" class="tabs">
+            <!-- Region tabs generated from config.json -->
+        </nav>
+
+        <div id="selectors" class="selectors">
+            <!-- Crop / season / forecast month selectors generated from manifest.json -->
+        </div>
+
+        <main id="content" class="content">
+            <!-- Dynamically generated region content -->
+        </main>
+
+        <footer>
+            <p>For questions, contact: <span id="contact-info"></span></p>
+            <p><small>Data sources: CHIRPS (UCSB), NOAA-PSL, USGS/EROS, IIASA-IFPRI</small></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
